@@ -14,6 +14,7 @@
 		8881A8011F7D477900146551 /* Receipts__.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8881A7FF1F7D477900146551 /* Receipts__.xcdatamodeld */; };
 		8881A8031F7D477900146551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8881A8021F7D477900146551 /* Assets.xcassets */; };
 		8881A8061F7D477900146551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8881A8041F7D477900146551 /* LaunchScreen.storyboard */; };
+		8881A81B1F7D652800146551 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8881A81A1F7D652800146551 /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,16 @@
 		8881A8021F7D477900146551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8881A8051F7D477900146551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8881A8071F7D477900146551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8881A80D1F7D616700146551 /* Receipt+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Receipt+CoreDataClass.h"; path = "../Receipt+CoreDataClass.h"; sourceTree = "<group>"; };
+		8881A80E1F7D616700146551 /* Receipt+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Receipt+CoreDataClass.m"; path = "../Receipt+CoreDataClass.m"; sourceTree = "<group>"; };
+		8881A80F1F7D616700146551 /* Receipt+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Receipt+CoreDataProperties.h"; path = "../Receipt+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8881A8101F7D616700146551 /* Receipt+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Receipt+CoreDataProperties.m"; path = "../Receipt+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8881A8111F7D616700146551 /* Tag+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+CoreDataClass.h"; path = "../Tag+CoreDataClass.h"; sourceTree = "<group>"; };
+		8881A8121F7D616700146551 /* Tag+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+CoreDataClass.m"; path = "../Tag+CoreDataClass.m"; sourceTree = "<group>"; };
+		8881A8131F7D616700146551 /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+CoreDataProperties.h"; path = "../Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8881A8141F7D616700146551 /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+CoreDataProperties.m"; path = "../Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8881A8191F7D652800146551 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		8881A81A1F7D652800146551 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +75,9 @@
 				8881A7F71F7D477900146551 /* AppDelegate.m */,
 				8881A7F91F7D477900146551 /* ViewController.h */,
 				8881A7FA1F7D477900146551 /* ViewController.m */,
+				8881A8191F7D652800146551 /* AddViewController.h */,
+				8881A81A1F7D652800146551 /* AddViewController.m */,
 				8881A7FC1F7D477900146551 /* Main.storyboard */,
-				8881A8021F7D477900146551 /* Assets.xcassets */,
-				8881A8041F7D477900146551 /* LaunchScreen.storyboard */,
-				8881A8071F7D477900146551 /* Info.plist */,
 				8881A7FF1F7D477900146551 /* Receipts__.xcdatamodeld */,
 				8881A7F31F7D477900146551 /* Supporting Files */,
 			);
@@ -78,6 +88,17 @@
 			isa = PBXGroup;
 			children = (
 				8881A7F41F7D477900146551 /* main.m */,
+				8881A80D1F7D616700146551 /* Receipt+CoreDataClass.h */,
+				8881A80E1F7D616700146551 /* Receipt+CoreDataClass.m */,
+				8881A80F1F7D616700146551 /* Receipt+CoreDataProperties.h */,
+				8881A8101F7D616700146551 /* Receipt+CoreDataProperties.m */,
+				8881A8111F7D616700146551 /* Tag+CoreDataClass.h */,
+				8881A8121F7D616700146551 /* Tag+CoreDataClass.m */,
+				8881A8131F7D616700146551 /* Tag+CoreDataProperties.h */,
+				8881A8141F7D616700146551 /* Tag+CoreDataProperties.m */,
+				8881A8021F7D477900146551 /* Assets.xcassets */,
+				8881A8041F7D477900146551 /* LaunchScreen.storyboard */,
+				8881A8071F7D477900146551 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8881A81B1F7D652800146551 /* AddViewController.m in Sources */,
 				8881A8011F7D477900146551 /* Receipts__.xcdatamodeld in Sources */,
 				8881A7FB1F7D477900146551 /* ViewController.m in Sources */,
 				8881A7F81F7D477900146551 /* AppDelegate.m in Sources */,
