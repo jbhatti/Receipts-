@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "Receipt+CoreDataClass.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) NSManagedObjectContext *context;
 
 @end
 

@@ -71,6 +71,9 @@
                             <constraint firstItem="hlf-nq-meX" firstAttribute="top" secondItem="s4j-YG-7vU" secondAttribute="bottom" id="vlC-JT-HiC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="s4j-YG-7vU" id="mYQ-7Q-RTP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,6 +147,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="D5D-hP-8Ic" id="3Ow-at-oVV"/>
+                                    <outlet property="delegate" destination="D5D-hP-8Ic" id="mIW-1f-Mr0"/>
+                                </connections>
                             </tableView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-97-76l">
                                 <rect key="frame" x="0.0" y="305" width="375" height="172"/>
@@ -162,6 +169,9 @@
                                     <constraint firstAttribute="width" constant="65" id="oi5-Xe-n1N"/>
                                 </constraints>
                                 <state key="normal" title="Cancel" image="cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="D5D-hP-8Ic" eventType="touchUpInside" id="f4A-wR-jth"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoS-g4-eWu">
                                 <rect key="frame" x="242" y="520" width="65" height="65"/>
@@ -170,6 +180,9 @@
                                     <constraint firstAttribute="width" constant="65" id="lPP-38-zhE"/>
                                 </constraints>
                                 <state key="normal" title="Add" image="add"/>
+                                <connections>
+                                    <action selector="addReceiptButton:" destination="D5D-hP-8Ic" eventType="touchUpInside" id="kn4-Dq-KsD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -193,6 +206,12 @@
                             <constraint firstItem="vNy-el-UfG" firstAttribute="leading" secondItem="mqp-7L-JtX" secondAttribute="leading" id="xq9-aF-lma"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="yqz-3M-61s" id="Lgs-W5-L4f"/>
+                        <outlet property="descriptionTextField" destination="WLa-Mw-GNj" id="5q1-Zn-OaI"/>
+                        <outlet property="receiptDatePicker" destination="rm9-97-76l" id="Y7h-d1-eie"/>
+                        <outlet property="tableView" destination="0DD-Nw-ELd" id="Hhv-RY-bRZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eX3-uW-RYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
