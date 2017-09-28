@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *receiptDatePicker;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+
 @end
 
 @implementation AddViewController
@@ -45,6 +46,48 @@
 }
 
 
+#pragma mark TableView
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    NSInteger row = [indexPath row];
+    
+    // Dequeue a cell using a common ID string of your choosing
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    // Return cells with data/labels/pretty colors here
+    if (row == 0)
+    {
+        cell.textLabel.text = @"Personal";
+    }
+    else if (row == 1)
+    {
+        cell.textLabel.text = @"Travel";
+    }
+    else if (row == 2)
+    {
+        cell.textLabel.text = @"Business";
+    }
+    
+    
+    return cell;  
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    }else{
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+}
 
 
 
