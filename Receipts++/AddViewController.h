@@ -14,5 +14,6 @@
 
 @property (nonatomic,weak) AppDelegate *delegate;
 @property (nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) NSArray<Tag *> *tags;
 
 @end

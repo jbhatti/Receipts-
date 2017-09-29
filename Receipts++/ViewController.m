@@ -10,13 +10,14 @@
 #import "Receipt+CoreDataClass.h"
 #import "AppDelegate.h"
 #import "AddViewController.h"
+#import "Tag+CoreDataClass.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray<Receipt *>*receipts;
 @property (nonatomic) NSManagedObjectContext *context;
 @property (nonatomic, weak) AppDelegate *delegate;
-@property (nonatomic) NSArray* tags;
+@property (nonatomic) NSArray<Tag *>* tags;
 
 @end
 
@@ -24,12 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tags = [[NSArray alloc] init];
-    self.tags = [NSArray arrayWithObjects:@"Personal", @"Travel", @"Business", nil];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
+    self.tags = [self.context executeFetchRequest:request error:nil];
     
     // Do any additional setup after loading the view, typically from a nib.
     self.delegate = ((AppDelegate*)[[UIApplication sharedApplication] delegate]);
     self.context = self.delegate.persistentContainer.viewContext;
+    [self fetchData];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(fetchData) name:NSManagedObjectContextDidSaveNotification object:nil];
 }
 
@@ -41,20 +43,20 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.receipts.count;
+    Tag *tagX = self.tags[section];
+    return tagX.receipts.count;
     
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    Receipt *receipt = self.receipts[indexPath.row];
+    Receipt *receipt = self.tags[indexPath.section].receipts.allObjects[indexPath.row];
     cell.textLabel.text = receipt.receiptDescription;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Header title: %@",  [self tableView:tableView titleForHeaderInSection:indexPath.section]);
+    NSLog(@"Header title: %@", [self tableView:tableView titleForHeaderInSection:indexPath.section]);
 }
 
 #pragma mark segue
@@ -63,6 +65,7 @@
         AddViewController *avc = segue.destinationViewController;
         avc.delegate = self.delegate;
         avc.context = self.context;
+        avc.tags = self.tags;
     }
 }
 
@@ -70,20 +73,17 @@
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *result = [self.tags objectAtIndex:section];
-        return result;
+    return [NSString stringWithFormat:@"%@", self.tags[section].tagName];
 }
-
-
 
 #pragma mark - Core Data
 
 - (void)fetchData {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Receipt"];
-    NSSortDescriptor *titleDesc = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:NO];
-    request.sortDescriptors = @[titleDesc];
-    NSArray <Receipt *>*receipt = [self.context executeFetchRequest:request error:nil];
-    self.receipts = receipt;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
+    NSSortDescriptor *tagDesc = [NSSortDescriptor sortDescriptorWithKey:@"tagName" ascending:NO];
+    request.sortDescriptors = @[tagDesc];
+    NSArray <Tag *>*tag = [self.context executeFetchRequest:request error:nil];
+    self.tags = tag;
     [self.tableView reloadData];
 }
 
